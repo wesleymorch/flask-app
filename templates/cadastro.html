@@ -1,0 +1,15 @@
+{% extends "base_time.html" %}
+
+{% block title %}CADASTRO{% endblock %}
+
+{% block content %}
+    <h1>CADASTRE-SE PARA RECEBER NOTÍCIAS DO {{ time_info.nome | upper }}!</h1>
+    <form action="{{ url_for('cadastro_post', time_id=time_info.id) }}" method="POST">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        <button type="submit">CADASTRAR</button>
+    </form>
+    <p><a href="{{ url_for('home_time', time_id=time_info.id) }}">VOLTAR PARA A PÁGINA DO {{ time_info.nome }}</a></p>
+{% endblock %}

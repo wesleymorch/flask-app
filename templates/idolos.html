@@ -1,0 +1,17 @@
+{% extends "base_time.html" %}
+
+{% block title %}Ídolos{% endblock %}
+
+{% block content %}
+    <h1>{{ time_info.nome }} - GRANDES ÍDOLOS</h1>
+    <p>CONHEÇA OS GRANDES ÍDOLOS QUE FIZERAM HISTÓRIA NO {{ time_info.nome }}.</p>
+
+    <h2>ÍDOLOS HISTÓRICOS</h2>
+    <ul>
+        {% for idolo in time_info.idolos_lista %}
+            <li>{{ idolo }}</li>
+        {% endfor %}
+    </ul>
+
+    <p><a href="{{ url_for('home_time', time_id=time_info.id) }}">VOLTAR PARA A PÁGINA DO {{ time_info.nome }}</a></p>
+{% endblock %}

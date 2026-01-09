@@ -1,0 +1,120 @@
+/* static/barcelona_theme.css */
+
+.barcelona-theme {
+    --time-principal-color: #A50044; /* Vermelho do Barcelona */
+    --time-secondary-color: #004D98; /* Azul escuro do Barcelona */
+}
+
+/* Header principal (topo) do Barcelona */
+.barcelona-theme .main-black-header {
+    background-image: linear-gradient(to right, var(--time-secondary-color) 50%, var(--time-principal-color) 50%);
+    height: 120px; /* AUMENTADO: A mesma altura definida no style.css para o header */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    overflow: visible; /* Mantenha como 'visible' se o logo for um pouco maior que a altura do header */
+}
+
+/* REMOVA estas regras, pois o escudo agora é .main-logo-overlay e está fora do header */
+/*
+.barcelona-theme .main-black-header .main-logo {
+    position: relative;
+    transform: none;
+    height: 150px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+    z-index: auto;
+}
+*/
+
+/* Garante que o container dentro do main-black-header não esteja limitando a largura */
+.barcelona-theme .main-black-header .container {
+    width: 100%;
+    max-width: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+/* ADICIONE ESTAS REGRAS para o escudo sobreposto DO BARCELONA */
+.barcelona-theme .main-logo-overlay {
+    height: 220px; /* TAMANHO MAIOR PARA O ESCUDO DO BARCELONA. Ajuste este valor! */
+    top: 30px; /* POSIÇÃO AJUSTADA PARA BARCELONA. Ajuste este valor para controlar a sobreposição. */
+    z-index: 1003; /* Pode aumentar o z-index para garantir que ele esteja acima de TUDO */
+}
+
+/* Ajustes responsivos para o escudo do Barcelona */
+@media (max-width: 1024px) {
+    .barcelona-theme .main-logo-overlay {
+        height: 160px; /* Tamanho maior para Barcelona em telas médias */
+        top: 35px; /* Posição ajustada */
+    }
+}
+
+@media (max-width: 768px) {
+    .barcelona-theme .main-logo-overlay {
+        height: 120px; /* Tamanho maior para Barcelona em telas pequenas */
+        top: 25px; /* Posição ajustada */
+    }
+}
+
+@media (max-width: 480px) {
+    .barcelona-theme .main-logo-overlay {
+        height: 90px; /* Tamanho maior para Barcelona em telas muito pequenas */
+        top: 20px; /* Posição ajustada */
+    }
+}
+
+
+/* Estilos para a navegação branca (white-nav-bar) */
+.barcelona-theme .white-nav-bar {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 5px 0;
+    position: relative;
+    z-index: 999;
+    min-height: 40px;
+    margin-top: 0;
+    border-bottom: 1px solid #eee;
+}
+
+/* Links na barra de navegação branca */
+.barcelona-theme .white-nav-bar ul li a {
+    color: #000; /* Cor padrão dos links em preto */
+}
+
+/* Hover dos links na barra de navegação branca (cores do tema) */
+.barcelona-theme .white-nav-bar ul li a:hover {
+    color: var(--time-principal-color); /* Usa o vermelho do Barcelona no hover */
+}
+
+/* O placeholder do logo na navegação (se usado para espaçamento) */
+/* Se você alterou o HTML para duas ULs, esta regra também deve ser ajustada para:
+.barcelona-theme .white-nav-bar .nav-links-container .logo-placeholder {
+   width: 250px;
+   height: 1px;
+   flex-shrink: 0;
+}
+*/
+.barcelona-theme .white-nav-bar ul li.logo-placeholder { /* Mantenha se o HTML for só uma UL */
+    width: 100px;
+    height: 1px;
+    flex-shrink: 0;
+}
+
+/* Outros estilos de tema existentes (mantenha como estão) */
+.barcelona-theme h1,
+.barcelona-theme h2 {
+    color: var(--time-principal-color);
+}
+
+.barcelona-theme a {
+    color: var(--time-secondary-color);
+}
+
+/* ... mantenha os outros estilos do tema Barcelona ... */

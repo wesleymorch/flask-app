@@ -1,0 +1,10 @@
+{% extends "base_time.html" %}
+
+{% block title %}Página Principal{% endblock %}
+
+{% block content %}
+    <h1>VOCÊ ESCOLHEU: {{ time_info.nome | upper }}!</h1>
+    <p>{{ time_info.slogan | default(time_info.nome + ' é um grande clube!') }}</p> {# ALTERADO PARA 'slogan' #}
+
+    <p>Esta seção conteria conteúdo específico da página principal do {{ time_info.nome }}, como informações gerais, notícias recentes, etc.</p>
+{% endblock %}

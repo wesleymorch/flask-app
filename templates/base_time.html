@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {# Título da página será definido pelo template filho e incluirá o nome do time #}
+    <title>{% block title %}Meu Site de Times{% endblock %} - {{ time_info.nome }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {# Carrega o CSS do tema específico do time dinamicamente #}
+    <link rel="stylesheet" href="{{ url_for('static', filename=time_info.id + '_theme.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+
+{# A classe do body para aplicar os estilos do tema #}
+<body class="{{ time_info.id }}-theme">
+
+    {# HEADER COM LOGO E GRADIENTE (OU PRETO) - Dinâmico #}
+    <header class="main-black-header">
+        <div class="container">
+            {# Imagem do escudo dinâmica com base no ID do time #}
+            <img src="{{ url_for('static', filename='escudo_' + time_info.id + '.png') }}" alt="Logo {{ time_info.nome }}" class="main-logo">
+        </div>
+    </header>
+
+    {# BARRA DE NAVEGAÇÃO BRANCA - LINKS INTERNOS E EXTERNOS (UNIFICADOS) #}
+    <div class="white-nav-bar">
+        <div class="container nav-links-container">
+            <ul>
+                {# Links internos para as sub-páginas do time #}
+                <li><a href="{{ url_for('cadastro', time_id=time_info.id) }}">CADASTRE-SE</a></li>
+                <li><a href="{{ url_for('titulos', time_id=time_info.id) }}">TÍTULOS</a></li>
+                <li class="logo-placeholder"></li> {# Placeholder para centralizar ou espaçar #}
+                <li><a href="{{ url_for('idolos', time_id=time_info.id) }}">ÍDOLOS</a></li>
+                <li><a href="{{ url_for('galeria', time_id=time_info.id) }}">GALERIA</a></li>
+
+                {# Links externos que você tinha em barcelona.html/corinthians.html, agora unificados aqui #}
+                {% if time_info.id == 'corinthians' %}
+                    <li><a href="https://www.corinthians.com.br/noticias" target="_blank">Notícias</a></li>
+                    <li><a href="https://www.corinthians.com.br/timaoagora" target="_blank">Timão Agora!</a></li>
+                    <li><a href="https://www.fieltorcedor.com.br/" target="_blank">Ingressos / Planos</a></li>
+                    <li><a href="https://www.corinthians.com.br/clube/historia" target="_blank">História</a></li>
+                {% elif time_info.id == 'barcelona' %}
+                    {# Exemplo: se Barcelona tivesse links externos específicos, colocaria aqui #}
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+
+    {# BARRA "VOLTAR PARA A PÁGINA DO TIME" #}
+    <div class="breadcrumbs-bar">
+        <div class="container breadcrumbs-container">
+            {# ESTE É O LINK CORRIGIDO QUE CAUSAVA O BuildError #}
+            <a href="{{ url_for('home_time', time_id=time_info.id) }}" class="back-link">VOLTAR PARA A PÁGINA DO TIME</a>
+        </div>
+    </div>
+
+    {# SEÇÃO COM PARALLAX E CONTEÚDO PRINCIPAL #}
+    <section class="parallax-section"
+        {# Imagem de fundo do parallax dinâmica, usando 'parallax_img' do dados_times #}
+        style="background-image: url('{{ url_for('static', filename=time_info.parallax_img) }}');">
+        <div class="parallax-overlay"></div>
+        <main class="container">
+            {# O conteúdo específico de cada página (home do time, cadastro, titulos, etc.) será injetado aqui #}
+            {% block content %}{% endblock %}
+        </main>
+    </section>
+
+</body>
+</html>

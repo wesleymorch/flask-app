@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESCOLHA SEU TIME</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index_style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+
+    <header>
+        <h1>ESCOLHA SEU TIME FAVORITO</h1>
+    </header>
+
+    <div class="fundo">
+        <div class="form-overlay">
+            <h1>ESCOLHA O SEU TIME FAVORITO</h1>
+            <form action="{{ url_for('confirmar_escolha') }}" method="POST">
+                <fieldset>
+                    <div>
+                        <input type="radio" id="barcelona" name="time" value="barcelona">
+                        <label for="barcelona">BARCELONA (EUROPEU)</label>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <div>
+                        <input type="radio" id="corinthians" name="time" value="corinthians">
+                        <label for="corinthians">CORINTHIANS (SUL-AMERICANO)</label>
+                    </div>
+                </fieldset>
+
+                <button type="submit">CONFIRMAR ESCOLHA</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

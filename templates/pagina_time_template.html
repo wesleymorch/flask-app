@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <title>{{ time_info.nome }} - {% block title_suffix %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+<body style="--time-principal-color: {{ time_info.cor_principal | default('#333') }}; --time-secondary-color: {{ time_info.cor_secundaria | default('white') }};">
+
+    <header class="time-header">
+        <h1>
+            {% if time_info.logo_url %}
+                <img src="{{ url_for('static', filename=time_info.logo_url) }}" alt="Logo {{ time_info.nome }}" class="logo">
+            {% endif %}
+            {{ time_info.nome }} - {{ time_info.slogan | default('') }}
+        </h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home_time', time_id=time_info.id) }}">🏠 Início ({{ time_info.nome }})</a></li>
+                <li><a href="{{ url_for('cadastro_time', time_id=time_info.id) }}">📝 Cadastre-se</a></li>
+                <li><a href="{{ url_for('titulos_time', time_id=time_info.id) }}">🏆 Títulos</a></li>
+                <li><a href="{{ url_for('idolos_time', time_id=time_info.id) }}">⭐ Ídolos</a></li>
+                <li><a href="{{ url_for('galeria_time', time_id=time_info.id) }}">🖼️ Galeria</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="{{ url_for('home') }}" class="back-to-selection-button">Voltar para a seleção de times</a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CADASTRO REALIZADO</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main style="text-align: center; padding: 50px;">
+        <h1>CADASTRO REALIZADO COM SUCESSO!</h1>
+        <p>NOME: {{ nome }}</p>
+        <p>EMAIL: {{ email }}</p>
+
+        {# Agora, este link volta para a página principal do time específico #}
+        <p><a href="{{ url_for('home_time', time_id=time_id) }}" class="back-to-selection-button">VOLTAR PARA A PÁGINA DO TIME</a></p>
+    </main>
+</body>
+</html>

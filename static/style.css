@@ -1,0 +1,557 @@
+/* static/style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: #000;
+    scrollbar-width: thin;
+    scrollbar-color: #bbb #f1f1f1;
+    overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #bbb;
+    border-radius: 6px;
+    border: 2px solid #f1f1f1;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.corinthians-header {
+    background-color: #000;
+    color: #fff;
+}
+
+.main-black-header {
+    height: 120px; /* AUMENTADO: Altura maior para o header principal */
+    padding-bottom: 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    background-color: #000; /* Fundo preto padrão para o Corinthians */
+}
+
+.main-black-header .container {
+    justify-content: center;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+}
+
+.main-black-header .main-logo {
+    position: relative;
+    transform: none;
+    height: 150px;
+    width: auto;
+    object-fit: contain;
+    z-index: 10; /* Aumente o z-index para garantir que ele esteja acima */
+    margin: 0 auto;
+    bottom: -30px; /* Mantém a posição original de sobreposição */
+}
+
+.white-nav-bar {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 5px 0;
+    min-height: 40px;
+    margin-top: -30px; /* Ajuste esta margem para que a barra branca se mova para cima, sobrepondo o logo */
+    border-bottom: 1px solid #eee;
+    position: relative; /* Adicione position relative para o z-index funcionar corretamente */
+    z-index: 5; /* Defina um z-index menor que o do logo, mas maior que outros elementos */
+}
+
+.white-nav-bar .nav-links-container {
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.white-nav-bar ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+    gap: 45px;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.white-nav-bar ul li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    font-size: 15px;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+    padding: 7px 0;
+    position: relative;
+    top: 0;
+}
+
+.white-nav-bar ul li a:hover {
+    color: var(--time-principal-color, red);
+}
+
+.white-nav-bar ul li.logo-placeholder {
+    width: 100px;
+    height: 1px;
+    flex-shrink: 0;
+}
+
+.breadcrumbs-bar {
+    background-color: #f0f0f0;
+    padding: 8px 0;
+    font-size: 0.8em;
+    color: #555;
+    border-bottom: 1px solid #ddd;
+}
+
+.breadcrumbs-bar .breadcrumbs-container {
+    justify-content: space-between;
+    padding: 0 15px;
+}
+
+.breadcrumbs-bar .back-link {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+.breadcrumbs-bar .back-link:hover {
+    color: red;
+}
+
+.parallax-section {
+    min-height: 700px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('../static/paralax.jpg');
+
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+
+    margin-top: 0;
+    top: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* MODIFICADO: Alinha o conteúdo ao topo do container flex */
+    text-align: center;
+
+    color: white;
+    z-index: 1;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    width: 90%;
+    max-width: 960px;
+    margin: 0;
+
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    color: #000;
+    position: relative;
+    z-index: 2;
+
+    text-align: left;
+}
+
+main .container {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    display: block;
+    align-items: initial;
+    height: auto;
+}
+
+main h1, main p, main a {
+    text-align: left;
+}
+
+main h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+main p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+main a {
+    display: inline-block;
+    margin-top: 15px;
+    color: blue;
+    text-decoration: underline;
+}
+
+h1,
+h2 {
+    color: #000;
+    margin-bottom: 20px;
+}
+
+form {
+    margin-bottom: 20px;
+    padding: 25px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #e9ecef;
+    text-align: left;
+    padding-left: 0;
+    color: #000;
+}
+
+fieldset {
+    border: none;
+    margin-bottom: 20px;
+    padding: 0;
+}
+
+legend {
+    font-weight: bold;
+    margin-bottom: 25px;
+    color: #555;
+    font-size: 1.1em;
+    text-align: left;
+    padding-left: 0;
+}
+
+fieldset > div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 0;
+    margin-left: 0;
+}
+
+input[type="radio"] {
+    margin-right: 8px;
+    vertical-align: middle;
+    transform: scale(1.1);
+}
+
+label {
+    margin-left: 0;
+    text-align: left;
+    padding-left: 0;
+    color: #000;
+}
+
+button[type="submit"] {
+    background-color: #000;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    display: block;
+    margin-left: 0;
+}
+
+button[type="submit"]:hover {
+    background-color: #333;
+}
+
+ul {
+    list-style: disc;
+    margin-left: 20px;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="email"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+form button[type="submit"] {
+    width: auto;
+}
+
+/* Variáveis de tema */
+:root {
+    --time-principal-color: #000000;
+    --time-secondary-color: #FFFFFF;
+}
+
+.barcelona-theme {
+    --time-principal-color: #A50044;
+    --time-secondary-color: #004D98;
+}
+
+.corinthians-theme {
+    --time-principal-color: #000000;
+    --time-secondary-color: #FFFFFF;
+}
+
+.time-header {
+    background-color: var(--time-principal-color);
+    color: var(--time-secondary-color);
+    padding: 1em 0 0.5em;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.time-header h1 {
+    margin: 0 0 10px;
+    font-size: 2em;
+}
+
+.time-header img.logo {
+    max-width: 80px;
+    height: auto;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.time-header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.time-header nav li {
+    margin: 0;
+}
+
+.time-header nav a {
+    text-decoration: none;
+    color: var(--time-secondary-color);
+    font-weight: bold;
+    padding: 3px 8px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+
+.time-header nav a:hover {
+    color: #ffd700;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.back-to-selection-button {
+    display: inline-block;
+    background-color: #6c757d;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.back-to-selection-button:hover {
+    background-color: #5a6268;
+}
+
+.gallery {
+    gap: 0;
+    margin-top: 15px;
+}
+
+.gallery iframe,
+.gallery video,
+.gallery img {
+    width: 100%;
+    display: block;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Remover a última margem inferior para não ter espaço extra no final da galeria */
+.gallery iframe:last-child,
+.gallery video:last-child,
+.gallery img:last-child {
+    margin-bottom: 0;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 1024px) {
+    .main-black-header {
+        height: 100px; /* Ajuste para telas menores */
+    }
+
+    .main-black-header .main-logo {
+        height: 80px; /* Ajuste do logo para telas menores */
+    }
+
+    .white-nav-bar {
+        margin-top: 0;
+    }
+
+    .white-nav-bar ul {
+        gap: 15px;
+    }
+
+    .white-nav-bar ul li:nth-child(5) {
+        margin-right: 0;
+    }
+
+    .time-header h1 {
+        font-size: 1.8em;
+    }
+
+    .time-header img.logo {
+        max-width: 70px;
+    }
+
+    .time-header nav ul {
+        gap: 10px;
+    }
+
+    .time-header nav a {
+        padding: 2px 6px;
+        font-size: 0.85em;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-black-header .container {
+        justify-content: center;
+        height: auto;
+        padding: 8px;
+    }
+
+    .main-black-header {
+        height: 80px; /* Mais um ajuste para telas menores */
+    }
+
+    .main-black-header .main-logo {
+        height: 60px; /* Ajuste do logo para telas menores */
+        position: static;
+        transform: none;
+        margin: 10px auto;
+        top: auto;
+        left: auto;
+    }
+
+    .white-nav-bar {
+        margin-top: 0;
+    }
+
+    .white-nav-bar ul {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .white-nav-bar ul li.logo-placeholder {
+        display: none;
+    }
+
+    .breadcrumbs-bar .breadcrumbs-container {
+        flex-direction: column;
+        gap: 4px;
+        text-align: center;
+    }
+
+    .time-header h1 {
+        font-size: 1.5em;
+    }
+
+    .time-header img.logo {
+        max-width: 60px;
+    }
+
+    .time-header nav ul {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .time-header nav a {
+        font-size: 0.8em;
+    }
+    .parallax-section {
+        min-height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-black-header {
+        height: 70px; /* Ajuste final para telas muito pequenas */
+    }
+
+    .main-black-header .main-logo {
+        height: 50px; /* Ajuste final do logo para telas muito pequenas */
+        z-index: 1;
+        position: relative;
+    }
+
+    .time-header h1 {
+        font-size: 1.2em;
+    }
+
+    .time-header img.logo {
+        max-width: 50px;
+    }
+
+    .time-header nav a {
+        font-size: 0.75em;
+    }
+}
